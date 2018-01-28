@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Luminary/ViewController.swift"
+            timestampString = "538860286.076297"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "recordButtonTapped()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Luminary/ViewController.swift"
+            timestampString = "538860286.076403"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
+            landmarkName = "stopRecording()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Luminary.ViewController.stopRecording() -&gt; ()"
+                  moduleName = "Luminary"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/weiqic/Documents/Github/Luminary/Luminary/ViewController.swift"
+                  timestampString = "538690366.6636471"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__ObjC.RPPreviewViewController&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Luminary.ViewController.stopRecording() -&gt; ()"
+                  moduleName = "Luminary"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/weiqic/Documents/Github/Luminary/Luminary/ViewController.swift"
+                  timestampString = "538690366.6703809"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "29">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__ObjC.UIAlertAction) -&gt; () in closure #1 (Swift.Optional&lt;__ObjC.RPPreviewViewController&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Luminary.ViewController.stopRecording() -&gt; ()"
+                  moduleName = "Luminary"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/weiqic/Documents/Github/Luminary/Luminary/ViewController.swift"
+                  timestampString = "538690366.6781909"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "15">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__ObjC.UIAlertAction) -&gt; () in closure #1 (Swift.Optional&lt;__ObjC.RPPreviewViewController&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Luminary.ViewController.stopRecording() -&gt; ()"
+                  moduleName = "Luminary"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/weiqic/Documents/Github/Luminary/Luminary/ViewController.swift"
+                  timestampString = "538690366.684935"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
