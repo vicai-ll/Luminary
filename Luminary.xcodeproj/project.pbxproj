@@ -14,6 +14,8 @@
 		3A0F8BCE201B06DE0009D53C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A0F8BCC201B06DE0009D53C /* LaunchScreen.storyboard */; };
 		3A0F8BD9201B06DE0009D53C /* LuminaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0F8BD8201B06DE0009D53C /* LuminaryTests.swift */; };
 		3A0F8BE4201B06DE0009D53C /* LuminaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0F8BE3201B06DE0009D53C /* LuminaryUITests.swift */; };
+		3A1FDEC3202687700020B33C /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1FDEC2202687700020B33C /* TableCell.swift */; };
+		3A8B7904202038F000C34E6C /* LineCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B7903202038F000C34E6C /* LineCardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		3A0F8BDF201B06DE0009D53C /* LuminaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LuminaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A0F8BE3201B06DE0009D53C /* LuminaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuminaryUITests.swift; sourceTree = "<group>"; };
 		3A0F8BE5201B06DE0009D53C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A1FDEC2202687700020B33C /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
+		3A8B7903202038F000C34E6C /* LineCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineCardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +101,14 @@
 		3A0F8BC2201B06DE0009D53C /* Luminary */ = {
 			isa = PBXGroup;
 			children = (
+				3A1FDEC12026875D0020B33C /* Modal */,
 				3A0F8BC3201B06DE0009D53C /* AppDelegate.swift */,
 				3A0F8BC5201B06DE0009D53C /* ViewController.swift */,
 				3A0F8BC7201B06DE0009D53C /* Main.storyboard */,
 				3A0F8BCA201B06DE0009D53C /* Assets.xcassets */,
 				3A0F8BCC201B06DE0009D53C /* LaunchScreen.storyboard */,
 				3A0F8BCF201B06DE0009D53C /* Info.plist */,
+				3A8B7903202038F000C34E6C /* LineCardViewController.swift */,
 			);
 			path = Luminary;
 			sourceTree = "<group>";
@@ -123,6 +129,14 @@
 				3A0F8BE5201B06DE0009D53C /* Info.plist */,
 			);
 			path = LuminaryUITests;
+			sourceTree = "<group>";
+		};
+		3A1FDEC12026875D0020B33C /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				3A1FDEC2202687700020B33C /* TableCell.swift */,
+			);
+			name = Modal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +273,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A1FDEC3202687700020B33C /* TableCell.swift in Sources */,
+				3A8B7904202038F000C34E6C /* LineCardViewController.swift in Sources */,
 				3A0F8BC6201B06DE0009D53C /* ViewController.swift in Sources */,
 				3A0F8BC4201B06DE0009D53C /* AppDelegate.swift in Sources */,
 			);

@@ -46,7 +46,9 @@ class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNVi
 
     // Json data
     var faceMeshList = [FaceMesh]()
-    var prevTimestamp = NSDate().timeIntervalSince1970;
+    var prevTimestamp = NSDate().timeIntervalSince1970
+    var lineCount = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,7 +106,7 @@ class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNVi
                 let min = Int(recorder.currentTime / 60)
                 let sec = Int(recorder.currentTime.truncatingRemainder(dividingBy: 60))
                 let s = String(format: "%02d:%02d", min, sec)
-                statusLabel.text = s
+//                statusLabel.text = s
                 recorder.updateMeters()
                 // if you want to draw some graphics...
                 //var apc0 = recorder.averagePowerForChannel(0)
@@ -114,9 +116,13 @@ class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNVi
     }
     
     @IBAction func recordButtonTapped() {
+        print("tapped", self.recordButton.backgroundColor!, self.lineCount)
         if !isRecording {
+            self.recordButton.backgroundColor = UIColor.red
             startRecording()
         } else {
+            self.lineCount += 1
+            self.recordButton.backgroundColor = UIColor.white
             stopRecording()
         }
     }
@@ -143,10 +149,8 @@ class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNVi
             
             self.recordAudioWithPermission(true)
             print("Started Recording Successfully")
-            self.micToggle.isEnabled = false
-            self.recordButton.backgroundColor = UIColor.red
-            self.statusLabel.text = "Recording..."
-            self.statusLabel.textColor = UIColor.red
+//            self.statusLabel.text = "Recording..."
+//            self.statusLabel.textColor = UIColor.red
             
             self.isRecording = true
         }
@@ -284,6 +288,7 @@ class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNVi
             
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { (action: UIAlertAction) in
                 self.screenRecorder.discardRecording(handler: { () -> Void in
+                    self.lineCount -= 1
                     print("Recording suffessfully deleted.")
                 })
             })
@@ -310,9 +315,9 @@ class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNVi
     
     func viewReset() {
         micToggle.isEnabled = true
-        statusLabel.text = "Ready to Record"
-        statusLabel.textColor = UIColor.black
-        recordButton.backgroundColor = UIColor.green
+//        statusLabel.text = "Ready to Record"
+//        statusLabel.textColor = UIColor.black
+//        recordButton.backgroundColor = UIColor.red
     }
 
     override func didReceiveMemoryWarning() {
@@ -410,6 +415,13 @@ class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNVi
             return facemashes
         } catch {
             fatalError(error.localizedDescription)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "LineCardViewSegue" {
+            let destinationViewController: LineCardViewController = segue.destination as! LineCardViewController
+            destinationViewController.initIndex = self.lineCount
         }
     }
 }
