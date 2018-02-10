@@ -10,27 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Luminary/ViewController.swift"
-            timestampString = "539480058.982414"
+            timestampString = "539951411.864845"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "recordButtonTapped()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Luminary/ViewController.swift"
-            timestampString = "539480058.982488"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
+            startingLineNumber = "349"
+            endingLineNumber = "349"
             landmarkName = "stopRecording()"
             landmarkType = "7">
             <Locations>
@@ -104,11 +88,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Luminary/ViewController.swift"
-            timestampString = "539480058.98255"
+            timestampString = "539951411.8659821"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "396"
-            endingLineNumber = "396"
+            startingLineNumber = "464"
+            endingLineNumber = "464"
             landmarkName = "saveFacemashesToDisk(faceMeshes:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -120,11 +104,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Luminary/ViewController.swift"
-            timestampString = "539480058.9826061"
+            timestampString = "539951411.866245"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
             landmarkName = "updateAudioMeter(_:)"
             landmarkType = "7">
          </BreakpointContent>

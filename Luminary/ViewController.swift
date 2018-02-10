@@ -14,6 +14,65 @@ import UIKit
 struct FaceMesh: Codable {
     let time: String
     let frame: [String: String]
+    let trans: SCNMatrix4
+    
+    enum CodingKeys: String, CodingKey {
+        case time
+        case frame
+        case trans
+    }
+    
+    enum AdditionalInfoKeys: String, CodingKey {
+        case elevation
+    }
+}
+
+extension SCNMatrix4: Codable {
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        self.m11 = try container.decode(Float.self)
+        self.m12 = try container.decode(Float.self)
+        self.m13 = try container.decode(Float.self)
+        self.m14 = try container.decode(Float.self)
+        
+        self.m21 = try container.decode(Float.self)
+        self.m22 = try container.decode(Float.self)
+        self.m23 = try container.decode(Float.self)
+        self.m24 = try container.decode(Float.self)
+        
+        self.m31 = try container.decode(Float.self)
+        self.m32 = try container.decode(Float.self)
+        self.m33 = try container.decode(Float.self)
+        self.m34 = try container.decode(Float.self)
+        
+        self.m41 = try container.decode(Float.self)
+        self.m42 = try container.decode(Float.self)
+        self.m43 = try container.decode(Float.self)
+        self.m44 = try container.decode(Float.self)
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        try container.encode(self.m11)
+        try container.encode(self.m12)
+        try container.encode(self.m13)
+        try container.encode(self.m14)
+        
+        try container.encode(self.m21)
+        try container.encode(self.m22)
+        try container.encode(self.m23)
+        try container.encode(self.m24)
+        
+        try container.encode(self.m31)
+        try container.encode(self.m32)
+        try container.encode(self.m33)
+        try container.encode(self.m34)
+        
+        try container.encode(self.m41)
+        try container.encode(self.m42)
+        try container.encode(self.m43)
+        try container.encode(self.m44)
+    }
 }
 
 class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNViewDelegate, ARSessionDelegate {
@@ -26,7 +85,7 @@ class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNVi
     @IBOutlet var colorPicker: UISegmentedControl!
     @IBOutlet var colorDisplay: UIView!
     @IBOutlet var recordButton: UIButton!
-    @IBOutlet var micToggle: UISwitch!
+//    @IBOutlet var micToggle: UISwitch!
     
     var audioRecorder: AVAudioRecorder!
     var audioPlayer: AVAudioPlayer!
@@ -117,10 +176,12 @@ class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNVi
     
     @IBAction func recordButtonTapped() {
         print("tapped", self.recordButton.backgroundColor!, self.lineCount)
+//        performSegue(withIdentifier: "LineCardViewSegue", sender: self)
         if !isRecording {
             self.recordButton.backgroundColor = UIColor.red
             startRecording()
         } else {
+            self.saveFacemashesToDisk(faceMeshes: self.faceMeshList)
             self.lineCount += 1
             self.recordButton.backgroundColor = UIColor.white
             stopRecording()
@@ -134,11 +195,11 @@ class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNVi
             return
         }
         
-        if micToggle.isOn {
-            screenRecorder.isMicrophoneEnabled = true
-        } else {
-            screenRecorder.isMicrophoneEnabled = false
-        }
+//        if micToggle.isOn {
+//            screenRecorder.isMicrophoneEnabled = true
+//        } else {
+//            screenRecorder.isMicrophoneEnabled = false
+//        }
         
         screenRecorder.startRecording{ [unowned self] (error) in
             
@@ -314,7 +375,7 @@ class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNVi
     }
     
     func viewReset() {
-        micToggle.isEnabled = true
+//        micToggle.isEnabled = true
 //        statusLabel.text = "Ready to Record"
 //        statusLabel.textColor = UIColor.black
 //        recordButton.backgroundColor = UIColor.red
@@ -343,6 +404,7 @@ class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNVi
         var curBlendShapeDict = [String: String]()
         
         if (isRecording) {
+            let trans = SCNMatrix4.init(faceAnchor.transform)
             for (blendShapeLocation, number) in faceAnchor.blendShapes {
                 curBlendShapeDict[blendShapeLocation.rawValue] = String(format: "%.4f", number.doubleValue)
             }
@@ -350,7 +412,7 @@ class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNVi
             // 25 frame per second
             if (timestamp - prevTimestamp > 0.05) {
                 prevTimestamp = timestamp
-                let faceMesh = FaceMesh(time: String(format: "%.3f", timestamp), frame: curBlendShapeDict)
+                let faceMesh = FaceMesh(time: String(format: "%.3f", timestamp), frame: curBlendShapeDict, trans: trans)
                 faceMeshList.append(faceMesh)
             }
         }
@@ -419,9 +481,9 @@ class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNVi
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "LineCardViewSegue" {
+        if segue.identifier == "LineCardScrollSegue" {
             let destinationViewController: LineCardViewController = segue.destination as! LineCardViewController
-            destinationViewController.initIndex = self.lineCount
+            destinationViewController.tableView.scrollToRow(at: IndexPath.init(row: self.lineCount, section: 0), at: .top, animated: false)
         }
     }
 }

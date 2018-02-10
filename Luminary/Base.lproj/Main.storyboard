@@ -40,15 +40,15 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fpy-xm-FDn">
                                                 <rect key="frame" x="0.0" y="5" width="65" height="65"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Audio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mal-Kn-B0O">
-                                                        <rect key="frame" x="16.5" y="0.0" width="32.5" height="34"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Vm-i4-ZAE">
-                                                        <rect key="frame" x="8" y="34" width="51" height="31"/>
-                                                    </switch>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTc-cc-Wc3">
+                                                        <rect key="frame" x="5" y="0.0" width="55" height="65"/>
+                                                        <state key="normal" title="View All">
+                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <segue destination="tN1-SO-Pb0" kind="show" identifier="LineCardScrollSegue" id="dsQ-1E-by5"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="65" id="ARy-J1-8sU"/>
@@ -69,6 +69,7 @@
                                                 <connections>
                                                     <action selector="lineScroll:" destination="7nc-IZ-XZg" eventType="touchUpInside" id="vhu-rQ-Dop"/>
                                                     <action selector="recordButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="n3x-C5-RbD"/>
+                                                    <action selector="recordButtonTapped:" destination="7nc-IZ-XZg" eventType="touchUpInside" id="H5d-yg-Ilq"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5c-4P-KTZ">
@@ -113,7 +114,6 @@
                         <viewLayoutGuide key="safeArea" id="fEX-Ia-6gS"/>
                     </view>
                     <connections>
-                        <outlet property="micToggle" destination="1Vm-i4-ZAE" id="HwM-Qb-TDZ"/>
                         <outlet property="recordButton" destination="am1-b8-A1T" id="LbM-T6-AXi"/>
                         <outlet property="sceneView" destination="lqd-F9-MF6" id="GyE-vl-qV2"/>
                     </connections>
@@ -121,7 +121,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="7nc-IZ-XZg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+            <point key="canvasLocation" x="-1343" y="164"/>
         </scene>
         <!--Line Card View Controller-->
         <scene sceneID="llK-Ob-bBH">
@@ -172,4 +172,7 @@
             <point key="canvasLocation" x="-468" y="163.71814092953525"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="nos-KB-QZQ"/>
+    </inferredMetricsTieBreakers>
 </document>

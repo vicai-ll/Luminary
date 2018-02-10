@@ -16,13 +16,7 @@ class LineCardViewController: UITableViewController {
     var lines = [Line]()
     var initIndex: Int?
     let identifier: String = "tableCell"
-    
-//    @IBAction func lineScroll(_ sender: Any) {
-//        var initIndexPath = IndexPath.init(row: self.initIndex!, section: 0)
-//        tableView.reloadData()
-//        tableView.scrollToRow(at: initIndexPath, at: .top, animated: false)
-//    }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         

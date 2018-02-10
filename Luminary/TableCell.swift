@@ -20,6 +20,5 @@ class TableCell : UITableViewCell {
         self.lineText.translatesAutoresizingMaskIntoConstraints = true
 //        self.lineText.sizeToFit()
         self.lineText.isScrollEnabled = false
-        print("height: %f", self.lineText.frame.height, self.lineText.frame.width)
     }
 }
