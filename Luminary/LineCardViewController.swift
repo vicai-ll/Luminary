@@ -26,29 +26,24 @@ class LineCardViewController: UITableViewController {
     
     func initializeTheLines() {
         let transcript = """
-Ernesto de la Cruz: I have to sing, I have to play. The music, it’s not just in me, it is me.
-Ernesto de la Cruz: When life gets me down, I play my guitar.
-Ernesto de la Cruz: The rest of the world may follow the rules, but I must follow my heart.
-Ernesto de la Cruz: You know that feeling, like there’s a song in the air and it’s playing just for you.
-Ernesto de la Cruz: I hope you like it.
-Ernesto de la Cruz: [singing] The feeling, so close, you can reach out and touch it.
-Ernesto de la Cruz: I never knew I could want something so much, but it’s true.
-Ernesto de la Cruz: Never underestimate the power of music.
-Ernesto de la Cruz: No one was going to hand me my future, it was up to me to reach for my dream.
-Ernesto de la Cruz: grab it tight and make it come true.
-[as Miguel is secretly playing his guitar in the barn]
-Miguel: Oh, it’s you. You’re going to get me into trouble, Dante.
-Miguel: Someone could hear me! I wish someone wanted to hear me, other than you.
-Miguel: I know, I’m not supposed to love music.
-Miguel: But my great-grandma Coco’s father was the greatest musician of all time, Ernesto de la Cruz.
-Miguel: One day he left with his guitar and never returned, now my family thinks music is a curse.
-Miguel: Great-great-grandfather, none of them understand me. I’m supposed to play music!
-Abuelita: No music! No music!
-Abuelita: Miguel, eat your food. Here, have some more.
-Miguel: No, gracias.
-[everyone gasps in shock]
-Miguel: I mean, si.
-Abuelita: Now, that’s what I thought you said.
+Hey hey, this is little lights! So you wanna come to my fun classroom? You know what! You need to show me your face. Now, put your face in the frame. Now, put your face in the frame.
+Face accepted. Please say our magical words, little lights, let’s go!
+Wow! XX. Are you ready? Let’s get started.
+Oh, my! I can’t wait to start our class. Let’s watch a fun music video.
+Music!!!
+What a great song!  Let us go through some words in that song. Don’t forget to repeat after me.
+Please read after me!
+Please try again!
+Good Job! Now, let’s try to point to the correct picture.
+Which one is Cat? Please say “A, B or C
+You are doing great! In the next section, please tell me what is on the screen.
+What is it?
+You got the hang of reading these words. Let us practice how to use them.
+Mom: Do you like dogs, Tom?
+Tom: Yes!
+Let us listen again!
+Let’s take it to the next level.
+Let us try again!
 """
         
         transcript.enumerateLines { line, _ in

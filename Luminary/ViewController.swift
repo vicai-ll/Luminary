@@ -340,6 +340,7 @@ class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNVi
         screenRecorder.stopRecording { [unowned self] (preview, error) in
             print("Stopped recording")
             
+            self.audioRecorder.stop()
             guard preview != nil else {
                 print("Preview controller is not available.")
                 return
@@ -348,6 +349,7 @@ class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNVi
             let alert = UIAlertController(title: "Recording Finished", message: "Would you like to edit or delete your recording?", preferredStyle: .alert)
             
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { (action: UIAlertAction) in
+                self.audioRecorder.deleteRecording()
                 self.screenRecorder.discardRecording(handler: { () -> Void in
                     self.lineCount -= 1
                     print("Recording suffessfully deleted.")
