@@ -82,6 +82,9 @@
                                                 <state key="normal" title="Upload">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="uploadButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lwy-2L-Cfa"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
@@ -116,6 +119,7 @@
                     <connections>
                         <outlet property="recordButton" destination="am1-b8-A1T" id="LbM-T6-AXi"/>
                         <outlet property="sceneView" destination="lqd-F9-MF6" id="GyE-vl-qV2"/>
+                        <outlet property="uploadButton" destination="k5c-4P-KTZ" id="Rcn-cb-AiB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -128,7 +132,7 @@
             <objects>
                 <tableViewController id="tN1-SO-Pb0" customClass="LineCardViewController" customModule="Luminary" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JAR-OU-yEg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="182"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -173,6 +177,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nos-KB-QZQ"/>
+        <segue reference="dsQ-1E-by5"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -6,7 +6,9 @@
 //  Copyright © 2018 Cai, Weiqi. All rights reserved.
 //
 
+import Alamofire
 import ARKit
+import SwiftyJSON
 import ReplayKit
 import SceneKit
 import UIKit
@@ -85,12 +87,14 @@ class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNVi
     @IBOutlet var colorPicker: UISegmentedControl!
     @IBOutlet var colorDisplay: UIView!
     @IBOutlet var recordButton: UIButton!
-//    @IBOutlet var micToggle: UISwitch!
+    @IBOutlet var uploadButton: UIButton!
+    //    @IBOutlet var micToggle: UISwitch!
     
     var audioRecorder: AVAudioRecorder!
     var audioPlayer: AVAudioPlayer!
     var meterTimer: Timer!
     var soundFileURL: URL!
+    var jsonFileURL: URL!
     var fileNameTime: Date!
     let screenRecorder = RPScreenRecorder.shared()
     private var isRecording = false
@@ -188,7 +192,32 @@ class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNVi
         }
     }
     
+    @IBAction func uploadButtonTapped(_ sender: Any) {
+        print("vic")
+        if (!self.isRecording && self.soundFileURL != nil && self.jsonFileURL != nil) {
+            Alamofire.upload(
+                multipartFormData: { multipartFormData in
+                    multipartFormData.append(self.soundFileURL, withName: "audio")
+                    multipartFormData.append(self.jsonFileURL, withName: "tracking")
+                    multipartFormData.append("Test".data(using: .utf8)!, withName: "line")
+            },
+                to: "http://data.littlelights.ai/api/upload/transcript",
+                encodingCompletion: { encodingResult in
+                    switch encodingResult {
+                    case .success(let upload, _, _):
+                        upload.responseString { response in
+                            debugPrint(response)
+                        }
+                    case .failure(let encodingError):
+                        print(encodingError)
+                    }
+                }
+            )
+        }
+    }
+    
     func startRecording() {
+        screenRecorder.isMicrophoneEnabled = true
         
         guard screenRecorder.isAvailable else {
             print("Screen recording is not available at this time.")
@@ -452,16 +481,16 @@ class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNVi
         // 1. Create a UR`L for documents-directory/posts.json
         let format = DateFormatter()
         format.dateFormat="yyyy-MM-dd-HH-mm-ss"
-        let url = getDocumentsURL().appendingPathComponent("faceinfo-\(format.string(from: fileNameTime)).json")
+        self.jsonFileURL = getDocumentsURL().appendingPathComponent("faceinfo-\(format.string(from: fileNameTime)).json")
         // 2. Endcode our [Post] data to JSON Data
         let encoder = JSONEncoder()
         do {
             let data = try encoder.encode(faceMeshes)
             // 3. Write this data to the url specified in step 1
             print(data)
-            try data.write(to: url, options: [])
+            try data.write(to: jsonFileURL, options: [])
             
-            print("Face mash info saved to \(url)")
+            print("Face mash info saved to \(jsonFileURL)")
         } catch {
             fatalError(error.localizedDescription)
         }
