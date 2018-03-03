@@ -218,7 +218,7 @@ class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNVi
     
     func startRecording() {
         screenRecorder.isMicrophoneEnabled = true
-        
+        self.faceMeshList = [FaceMesh]()
         guard screenRecorder.isAvailable else {
             print("Screen recording is not available at this time.")
             return
