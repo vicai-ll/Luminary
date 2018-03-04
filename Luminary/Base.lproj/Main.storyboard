@@ -20,22 +20,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RX5-91-0q0">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="695"/>
                                 <subviews>
-                                    <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="lqd-F9-MF6">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="390"/>
+                                    <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pbP-HE-X9G" customClass="PuppetView" customModule="Animoji">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="407"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="375" id="SKA-9o-pge"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="407" id="G7W-j8-QNw"/>
+                                            <constraint firstAttribute="height" constant="407" id="L3k-KW-Z1d"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="407" id="gnz-ab-EjA"/>
                                         </constraints>
-                                    </arscnView>
+                                    </sceneKitView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fU3-Ir-qAf">
-                                        <rect key="frame" x="0.0" y="400" width="375" height="182"/>
+                                        <rect key="frame" x="0.0" y="417" width="375" height="193"/>
                                         <connections>
                                             <segue destination="tN1-SO-Pb0" kind="embed" identifier="LineCardViewSegue" id="nos-KB-QZQ"/>
                                         </connections>
                                     </containerView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0Au-Ro-XgZ">
-                                        <rect key="frame" x="0.0" y="592" width="375" height="75"/>
+                                        <rect key="frame" x="0.0" y="620" width="375" height="75"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fpy-xm-FDn">
                                                 <rect key="frame" x="0.0" y="5" width="65" height="65"/>
@@ -96,13 +98,15 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="fU3-Ir-qAf" firstAttribute="top" secondItem="0Au-Ro-XgZ" secondAttribute="bottom" multiplier="0.6" id="4Ey-DL-8Nl"/>
-                                    <constraint firstAttribute="trailing" secondItem="lqd-F9-MF6" secondAttribute="trailing" id="87I-fX-SVq"/>
+                                    <constraint firstAttribute="trailing" secondItem="pbP-HE-X9G" secondAttribute="trailing" id="4ag-vl-5mp"/>
+                                    <constraint firstItem="pbP-HE-X9G" firstAttribute="top" secondItem="RX5-91-0q0" secondAttribute="top" id="Cu0-A0-hsK"/>
                                     <constraint firstAttribute="bottom" secondItem="0Au-Ro-XgZ" secondAttribute="bottom" id="DGS-MG-VCu"/>
                                     <constraint firstAttribute="bottom" secondItem="0Au-Ro-XgZ" secondAttribute="bottom" id="OrS-lk-qOn"/>
-                                    <constraint firstItem="lqd-F9-MF6" firstAttribute="leading" secondItem="RX5-91-0q0" secondAttribute="leading" id="WRe-hr-vel"/>
+                                    <constraint firstItem="pbP-HE-X9G" firstAttribute="leading" secondItem="RX5-91-0q0" secondAttribute="leading" id="Row-rC-4i1"/>
                                     <constraint firstItem="0Au-Ro-XgZ" firstAttribute="top" secondItem="fU3-Ir-qAf" secondAttribute="bottom" constant="10" id="YuW-ee-a9A"/>
                                     <constraint firstAttribute="bottom" secondItem="0Au-Ro-XgZ" secondAttribute="bottom" id="fFw-ni-497"/>
                                     <constraint firstItem="0Au-Ro-XgZ" firstAttribute="leading" secondItem="RX5-91-0q0" secondAttribute="leading" id="gWd-Cx-HBm"/>
+                                    <constraint firstItem="fU3-Ir-qAf" firstAttribute="top" secondItem="pbP-HE-X9G" secondAttribute="bottom" constant="10" id="kRP-ji-ogO"/>
                                     <constraint firstAttribute="trailing" secondItem="0Au-Ro-XgZ" secondAttribute="trailing" id="pc8-aL-D0i"/>
                                 </constraints>
                             </stackView>
@@ -117,15 +121,15 @@
                         <viewLayoutGuide key="safeArea" id="fEX-Ia-6gS"/>
                     </view>
                     <connections>
+                        <outlet property="puppetView" destination="pbP-HE-X9G" id="JOh-Yf-xjL"/>
                         <outlet property="recordButton" destination="am1-b8-A1T" id="LbM-T6-AXi"/>
-                        <outlet property="sceneView" destination="lqd-F9-MF6" id="GyE-vl-qV2"/>
                         <outlet property="uploadButton" destination="k5c-4P-KTZ" id="Rcn-cb-AiB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="7nc-IZ-XZg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1343" y="164"/>
+            <point key="canvasLocation" x="-1343.2" y="163.26836581709148"/>
         </scene>
         <!--Line Card View Controller-->
         <scene sceneID="llK-Ob-bBH">
@@ -144,8 +148,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvG-a0-tWs">
-                                            <rect key="frame" x="16" y="0.0" width="343" height="99.5"/>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvG-a0-tWs">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="150"/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>

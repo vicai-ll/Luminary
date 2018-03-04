@@ -7,6 +7,7 @@
 //
 
 import Alamofire
+import Animoji
 import ARKit
 import SwiftyJSON
 import ReplayKit
@@ -81,6 +82,13 @@ class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNVi
     
     // ARKit UI
     @IBOutlet var sceneView: ARSCNView!
+    // PuppetView
+    @IBOutlet weak var puppetView: PuppetView! {
+        didSet {
+            let item = PuppetItem.all[0]
+            puppetView.avatarInstance = Puppet.puppetNamed(item.rawValue)?.value
+        }
+    }
     
     // Recorder UI
     @IBOutlet var statusLabel: UILabel!
@@ -118,7 +126,7 @@ class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNVi
         
         recordButton.layer.cornerRadius = 32.5
         
-        initBlackARScene()
+//        initBlackARScene()
     }
     
     // Set up black AR Scene and face wirefame
@@ -179,9 +187,9 @@ class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNVi
     }
     
     @IBAction func recordButtonTapped() {
-        print("tapped", self.recordButton.backgroundColor!, self.lineCount)
+        print("tapped", self.isRecording, self.recordButton.backgroundColor!, self.lineCount)
 //        performSegue(withIdentifier: "LineCardViewSegue", sender: self)
-        if !isRecording {
+        if !self.isRecording {
             self.recordButton.backgroundColor = UIColor.red
             startRecording()
         } else {
@@ -343,14 +351,14 @@ class ViewController: UIViewController, RPPreviewViewControllerDelegate, ARSCNVi
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        resetTracking()
+//        resetTracking()
     }
     
     // Stop the session if this ViewController is hidden
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        sceneView.session.pause()
+//        sceneView.session.pause()
     }
     
     // Initial setting of node as the origin of Face Tracking

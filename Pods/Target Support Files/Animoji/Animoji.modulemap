@@ -1,0 +1,6 @@
+framework module Animoji {
+  umbrella header "Animoji-umbrella.h"
+
+  export *
+  module * { export * }
+}

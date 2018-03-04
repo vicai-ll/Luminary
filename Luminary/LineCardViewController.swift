@@ -26,24 +26,28 @@ class LineCardViewController: UITableViewController {
     
     func initializeTheLines() {
         let transcript = """
-Hey hey, this is little lights! So you wanna come to my fun classroom? You know what! You need to show me your face. Now, put your face in the frame. Now, put your face in the frame.
-Face accepted. Please say our magical words, little lights, let’s go!
-Wow! XX. Are you ready? Let’s get started.
+Hey hey, this is Jack from little lights! So you wanna come to my fun classroom? You know what! You need to show me your face.
+Now, put your face in the frame.
+Face accepted. Please say our magical words, 1，2，3...little lights, let’s go!
+Wow! Leo. Are you ready? Let’s get started.
 Oh, my! I can’t wait to start our class. Let’s watch a fun music video.
-Music!!!
-What a great song!  Let us go through some words in that song. Don’t forget to repeat after me.
-Please read after me!
+What a great song! Let‘s go through some words in that song.
+Don’t forget to repeat after me.
+Please read after me
 Please try again!
-Good Job! Now, let’s try to point to the correct picture.
-Which one is Cat? Please say “A, B or C
-You are doing great! In the next section, please tell me what is on the screen.
+You have done a Good job. In next section,
+Don’t forget to point to the correct picture
+Please listen to it carefully
+Perfect! In next section,
+please tell me what is on the screen
 What is it?
-You got the hang of reading these words. Let us practice how to use them.
-Mom: Do you like dogs, Tom?
-Tom: Yes!
-Let us listen again!
-Let’s take it to the next level.
-Let us try again!
+The answer is
+You have done a Great job. In next section,
+Let’s practice how to use them.
+Let’s listen to it, again!”
+OK. Let’s practice.
+Let’s take it into next level.
+Cool. In next section,
 """
         
         transcript.enumerateLines { line, _ in

@@ -1,0 +1,11 @@
+framework module Animoji {
+  umbrella header "Animoji.h"
+
+  export *
+  module * { export * }
+}
+
+module Animoji.Swift {
+    header "Animoji-Swift.h"
+    requires objc
+}
